@@ -1,12 +1,41 @@
 //1012：进制转换
-#include <iostream>
-int main() {
-    int n, n1, n2;
-    std::cin >> n;
-    for(int i = 0; i < n; ++i) {
-        std::cin >> n1 >> n2;
-        Number no1(n1, 10);     //n1是10进制正整数
-        Number no3 = no1.converto(n2);  //no3是n2进制的正整数
-        no3.show();     //输出结果
-    }
+#include<stdio.h>
+#include<math.h>
+int main(void){
+    int n,i,j,k,m,count;
+    int a[10000],b[10000];
+	scanf("%d",&n);
+	k=0;
+	if(n%2==0&&n>=6){
+	for(i=3;i<=n;i++){
+		count=0;
+		for(j=2;j<=i-1;j++){
+			if(i%j==0){
+				count=1;
+				break;
+			}	
+		}
+		if(count==0){
+		
+		a[k++]=i;}
+	}
+	for(m=0;m<=k-1;m++){
+		if(a[m]>(n/2)){
+		m--;
+		break;}
+	}
+	for(i=0;i<=m;i++){
+		b[i]=n-a[i];
+		for(j=0;j<=k-1;j++){
+			if(b[i]==a[j]){
+			printf("%d %d\n",a[i],a[j]);
+			
+		    break;
+			}
+		}
+	}
 }
+	else{
+	printf("ERROR");}
+	return 0;
+} 

@@ -1,4 +1,38 @@
-//f(n)å‡½æ•°çš„å®šä¹‰ä¸º0~nä¸­åŒ…å«çš„1çš„ä¸ªæ•°
-//f(13)æ˜¯0~13ä¸­åŒ…å«1çš„æœ‰ 1ï¼Œ10ï¼Œ11ï¼Œ12ï¼Œ13ï¼Œæ‰€ä»¥f(13)=6
-//f(1) = 1ã€‚
-//æ±‚å¦ä¸€ä¸ªf(n)=nçš„nå€¼
+//f(n)º¯ÊýµÄ¶¨ÒåÎª0~nÖÐ°üº¬µÄ1µÄ¸öÊý
+//f(13)ÊÇ0~13ÖÐ°üº¬1µÄÓÐ 1£¬10£¬11£¬12£¬13£¬ËùÒÔf(13)=6
+//f(1) = 1¡£
+//ÇóÁíÒ»¸öf(n)=nµÄnÖµ
+#include <stdio.h>
+int f(int j,int a[]){
+	int b[100];
+	int i=0;
+	int k;
+	int count=0;
+	do{
+		b[i++]=a[j]%10;
+		a[j]=a[j]/10;
+	}while(a[j]>0);
+	for(k=0;k<=i-1;k++){
+		if(b[k]==1)
+		count++;
+	}
+	return count;
+}
+int main() {
+	int i,n;
+	int a[10000];
+	int sum;
+	for(n=2;;n++){
+	sum=0;
+    for(i=0;i<=n-1;i++){
+    	a[i]=i+1;
+    	sum=sum+f(i,a);
+	}
+	if(sum==n);
+	break;
+}
+	printf("%d",sum);
+	
+	
+    return 0;
+}

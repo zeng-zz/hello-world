@@ -5,15 +5,44 @@
 //现在输入画面的宽和高，然后在上述清单中挑选一个最接近的分辨率输出
 //比如输入2000，1000，输出的分辨率应该是1920x1080，因为其它分辨率的误差更大。
 //完成如下程序
-#include <stdio.h>
-int main()
-{
-    char ress[2048];
-    int x, y;
-    scanf("%s", ress);
-    scanf("%d %d", &x, &y);
-
-
-    printf("选中的分辨率是%s\n", "???");
-    return 0;
+#include<stdio.h>
+#include<math.h>
+int main(void){
+    int n,i,j,k,m,count;
+    int a[10000],b[10000];
+	scanf("%d",&n);
+	k=0;
+	if(n%2==0&&n>=6){
+	for(i=3;i<=n;i++){
+		count=0;
+		for(j=2;j<=i-1;j++){
+			if(i%j==0){
+				count=1;
+				break;
+			}	
+		}
+		if(count==0){
+		
+		a[k++]=i;}
+	}
+	for(m=0;m<=k-1;m++){
+		if(a[m]>(n/2)){
+		m--;
+		break;}
+	}
+	for(i=0;i<=m;i++){
+		b[i]=n-a[i];
+		for(j=0;j<=k-1;j++){
+			if(b[i]==a[j]){
+			printf("%d %d\n",a[i],a[j]);
+			
+		    break;
+			}
+		}
+	}
 }
+	else{
+	printf("ERROR");}
+	return 0;
+} 
+
